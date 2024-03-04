@@ -33,7 +33,7 @@
                   <Component id="txtFeedback" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblTemperature" pref="267" max="32767" attributes="0"/>
+                          <Component id="lblTemperature" pref="299" max="32767" attributes="0"/>
                           <Component id="txtTemperature" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>

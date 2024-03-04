@@ -42,6 +42,10 @@ public class TemperatureData {
         float temp, oldTemp;
         oldTemp = this.temperature;
         
+        this.localDateTime = now();
+        
+        
+        
         try 
         {
             this.temperature = Float.parseFloat(temperature);
@@ -64,14 +68,22 @@ public class TemperatureData {
           }
 //    move time.now to setTemperature
 //    function to prepare the output string
+    private String formatDateTime(){
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return localDateTime.format(format);
+    }
+    
     public String toString() {
         String shownTemperature = String.valueOf(this.temperature);
 //        String dateAndTime = getDateAndTime();
-
-        this.localDateTime = now();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yy HH:mm:ss");
-        String dateAndTime = localDateTime.format(format);
-        if (this.temperature > 37.9) return  "Date: " + dateAndTime + " - Temperature Reading: "+ this.temperature + " (High)";
+        
+        String dateAndTime = formatDateTime();
+        
+        if (this.temperature > 37.2) {
+            return  "Date: " + dateAndTime + " - Temperature Reading: "+ this.temperature + " (High)";
+        } else if (this.temperature < 36.1){
+            return  "Date: " + dateAndTime + " - Temperature Reading: "+ this.temperature + " (Low)";
+        }
         else {
             return "Date: " + dateAndTime + " - Temperature Reading: " + this.temperature + " (Normal)";
         }
